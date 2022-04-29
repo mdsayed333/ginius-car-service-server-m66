@@ -42,7 +42,7 @@ async function run(){
 
 
         // AUTH /  JsonWebToken (JWT)
-        
+
       app.post('/login', async (req, res) => {
         const user = req.body;
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
@@ -119,6 +119,10 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
     res.send('Running genius car server');
 });
+
+app.get('/hero', (req, res) => {
+  res.send('Hero meet horoku...');
+})
 
 app.listen(port, ()=> {
     console.log('Listening to port', port);
